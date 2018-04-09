@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517A111207308BA00910C3C /* SignInMainViewController.swift */; };
+		A57806A1207C0C9E00BCAD0B /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */; };
+		A57806A3207C0CC500BCAD0B /* CreateAccountSecController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */; };
 		A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15720682A2A00619ADF /* AppDelegate.swift */; };
 		A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15920682A2A00619ADF /* RootViewController.swift */; };
 		A5F7C15C20682A2A00619ADF /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15B20682A2A00619ADF /* DataViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A517A111207308BA00910C3C /* SignInMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMainViewController.swift; sourceTree = "<group>"; };
+		A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSecController.swift; sourceTree = "<group>"; };
 		A5F7C15420682A2A00619ADF /* OnceMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnceMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F7C15720682A2A00619ADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5F7C15920682A2A00619ADF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				A5F7C16220682A2A00619ADF /* Assets.xcassets */,
 				A5F7C16420682A2A00619ADF /* LaunchScreen.storyboard */,
 				A5F7C16720682A2A00619ADF /* Info.plist */,
+				A517A111207308BA00910C3C /* SignInMainViewController.swift */,
+				A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */,
+				A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */,
 			);
 			path = OnceMemory;
 			sourceTree = "<group>";
@@ -266,9 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */,
+				A57806A3207C0CC500BCAD0B /* CreateAccountSecController.swift in Sources */,
 				A5F7C15E20682A2A00619ADF /* ModelController.swift in Sources */,
 				A5F7C15C20682A2A00619ADF /* DataViewController.swift in Sources */,
+				A57806A1207C0C9E00BCAD0B /* CreateAccountController.swift in Sources */,
 				A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */,
+				A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
