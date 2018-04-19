@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateAccountController: UIViewController, UITextFieldDelegate {
 
@@ -16,6 +17,7 @@ class CreateAccountController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var repwdTextField: UITextField!
     
+    @IBOutlet weak var confirmButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,36 @@ class CreateAccountController: UIViewController, UITextFieldDelegate {
         self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
     }
     
-
+    @IBAction func funcBtn(_ confirmBtn: UIButton) {
+        let app = UIApplication.shared.delegate as! AppDelegate
+        let context = app.persistentContainer.viewContext
+        
+        //创建User对象
+        let user = NSEntityDescription.insertNewObject(forEntityName: "User",
+                                                       into: context) as! User
+        
+        //对象赋值
+        
+        let usrname = self.idTextField.text
+        let password = self.pwdTextField.text
+        
+        user.username = usrname
+        user.password = password
+        
+        //保存
+        do {
+            try context.save()
+            print("Saved Successfully")
+        } catch {
+            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
+            
+            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

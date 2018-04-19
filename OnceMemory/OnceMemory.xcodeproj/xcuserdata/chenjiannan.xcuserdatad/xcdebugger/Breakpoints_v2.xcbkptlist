@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnceMemory/CreateAccountSecController.swift"
+            timestampString = "545790358.683042"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnceMemory.CreateAccountSecController.__deallocating_deinit"
+                  moduleName = "OnceMemory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
+                  timestampString = "545790358.806543"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnceMemory.CreateAccountSecController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; OnceMemory.CreateAccountSecController"
+                  moduleName = "OnceMemory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
+                  timestampString = "545790358.809288"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnceMemory.CreateAccountSecController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; OnceMemory.CreateAccountSecController"
+                  moduleName = "OnceMemory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
+                  timestampString = "545790358.814297"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnceMemory.CreateAccountSecController.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;OnceMemory.CreateAccountSecController&gt;"
+                  moduleName = "OnceMemory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
+                  timestampString = "545790358.817225"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnceMemory.CreateAccountSecController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;OnceMemory.CreateAccountSecController&gt;"
+                  moduleName = "OnceMemory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
+                  timestampString = "545790358.8200409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
