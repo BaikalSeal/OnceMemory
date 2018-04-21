@@ -6,11 +6,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnceMemory/CreateAccountSecController.swift"
-            timestampString = "545887836.344049"
+            timestampString = "545975799.831247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "10"
@@ -19,14 +19,14 @@
             landmarkType = "0">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OnceMemory.CreateAccountSecController.__deallocating_deinit"
                   moduleName = "OnceMemory"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
-                  timestampString = "545887836.560073"
+                  timestampString = "545972743.713113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -34,14 +34,14 @@
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OnceMemory.CreateAccountSecController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; OnceMemory.CreateAccountSecController"
                   moduleName = "OnceMemory"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
-                  timestampString = "545887836.563"
+                  timestampString = "545972743.716701"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -49,14 +49,14 @@
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OnceMemory.CreateAccountSecController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; OnceMemory.CreateAccountSecController"
                   moduleName = "OnceMemory"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
-                  timestampString = "545887836.5679491"
+                  timestampString = "545972743.721424"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -64,14 +64,14 @@
                   offsetFromSymbolStart = "76">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OnceMemory.CreateAccountSecController.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;OnceMemory.CreateAccountSecController&gt;"
                   moduleName = "OnceMemory"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
-                  timestampString = "545887836.572552"
+                  timestampString = "545972743.732818"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -79,14 +79,14 @@
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OnceMemory.CreateAccountSecController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;OnceMemory.CreateAccountSecController&gt;"
                   moduleName = "OnceMemory"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenjiannan/Documents/BaikalSeal/OnceMemory/OnceMemory/CreateAccountSecController.swift"
-                  timestampString = "545887836.576283"
+                  timestampString = "545972743.738528"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -99,16 +99,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnceMemory/SearchResultsViewController.swift"
-            timestampString = "545887836.344439"
+            filePath = "OnceMemory/AddItemViewController.swift"
+            timestampString = "545973413.972385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "addRecords(_:_:_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -119,12 +119,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnceMemory/SearchResultsViewController.swift"
-            timestampString = "545887836.34497"
+            timestampString = "545975799.831826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "searchResult(_:_:_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnceMemory/SearchResultsViewController.swift"
+            timestampString = "545975799.832248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "searchResult(_:_:_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnceMemory/SearchViewController.swift"
+            timestampString = "545975799.832602"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnceMemory/SearchViewController.swift"
+            timestampString = "545975799.833851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "funcBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

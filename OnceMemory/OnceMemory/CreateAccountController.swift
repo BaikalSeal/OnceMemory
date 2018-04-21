@@ -71,7 +71,7 @@ class CreateAccountController: UIViewController, UITextFieldDelegate {
             try context.save()
             print("Saved Successfully")
         } catch {
-            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
+            let alertController = UIAlertController(title: "Attention", message: "Save failed", preferredStyle:  .alert)
             
             let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
             
