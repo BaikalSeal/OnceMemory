@@ -10,6 +10,13 @@
 		A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517A111207308BA00910C3C /* SignInMainViewController.swift */; };
 		A57806A1207C0C9E00BCAD0B /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */; };
 		A57806A3207C0CC500BCAD0B /* CreateAccountSecController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */; };
+		A57A0D0020898CCC0075E6D4 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */; };
+		A57A0D0220898D0C0075E6D4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A0D0120898D0C0075E6D4 /* DetailViewController.swift */; };
+		A5D0BCCC2087DC2A00B618A9 /* OnceMemory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */; };
+		A5D0BCCE2087DFF300B618A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */; };
+		A5D7C4F2208A75CB007961F9 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */; };
+		A5D7C4F4208AD839007961F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F3208AD839007961F9 /* SearchViewController.swift */; };
+		A5D7C4F6208AD861007961F9 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F5208AD861007961F9 /* AdvancedSearchViewController.swift */; };
 		A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15720682A2A00619ADF /* AppDelegate.swift */; };
 		A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15920682A2A00619ADF /* RootViewController.swift */; };
 		A5F7C15C20682A2A00619ADF /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15B20682A2A00619ADF /* DataViewController.swift */; };
@@ -42,6 +49,13 @@
 		A517A111207308BA00910C3C /* SignInMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMainViewController.swift; sourceTree = "<group>"; };
 		A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSecController.swift; sourceTree = "<group>"; };
+		A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		A57A0D0120898D0C0075E6D4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnceMemory.xcdatamodel; sourceTree = "<group>"; };
+		A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		A5D7C4F3208AD839007961F9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A5D7C4F5208AD861007961F9 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		A5F7C15420682A2A00619ADF /* OnceMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnceMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F7C15720682A2A00619ADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5F7C15920682A2A00619ADF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +132,13 @@
 				A517A111207308BA00910C3C /* SignInMainViewController.swift */,
 				A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */,
 				A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */,
+				A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */,
+				A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */,
+				A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */,
+				A57A0D0120898D0C0075E6D4 /* DetailViewController.swift */,
+				A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */,
+				A5D7C4F3208AD839007961F9 /* SearchViewController.swift */,
+				A5D7C4F5208AD861007961F9 /* AdvancedSearchViewController.swift */,
 			);
 			path = OnceMemory;
 			sourceTree = "<group>";
@@ -274,13 +295,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D7C4F6208AD861007961F9 /* AdvancedSearchViewController.swift in Sources */,
+				A57A0D0220898D0C0075E6D4 /* DetailViewController.swift in Sources */,
+				A5D0BCCE2087DFF300B618A9 /* LoginViewController.swift in Sources */,
 				A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */,
 				A57806A3207C0CC500BCAD0B /* CreateAccountSecController.swift in Sources */,
 				A5F7C15E20682A2A00619ADF /* ModelController.swift in Sources */,
+				A5D7C4F2208A75CB007961F9 /* AddItemViewController.swift in Sources */,
 				A5F7C15C20682A2A00619ADF /* DataViewController.swift in Sources */,
 				A57806A1207C0C9E00BCAD0B /* CreateAccountController.swift in Sources */,
+				A5D7C4F4208AD839007961F9 /* SearchViewController.swift in Sources */,
+				A5D0BCCC2087DC2A00B618A9 /* OnceMemory.xcdatamodeld in Sources */,
 				A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */,
 				A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */,
+				A57A0D0020898CCC0075E6D4 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +606,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */,
+			);
+			currentVersion = A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */;
+			path = OnceMemory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A5F7C14C20682A2A00619ADF /* Project object */;
 }
