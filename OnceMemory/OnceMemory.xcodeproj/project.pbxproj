@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517A111207308BA00910C3C /* SignInMainViewController.swift */; };
+		A51B637E208D340D00347A18 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A51B637D208D340D00347A18 /* DLRadioButton.m */; };
+		A51B6382208D4E7600347A18 /* AdvnacedResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B6381208D4E7600347A18 /* AdvnacedResultViewController.swift */; };
 		A57806A1207C0C9E00BCAD0B /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */; };
 		A57806A3207C0CC500BCAD0B /* CreateAccountSecController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */; };
+		A57A0D0020898CCC0075E6D4 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */; };
+		A57A0D0220898D0C0075E6D4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A0D0120898D0C0075E6D4 /* DetailViewController.swift */; };
+		A5D0BCCC2087DC2A00B618A9 /* OnceMemory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */; };
+		A5D0BCCE2087DFF300B618A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */; };
+		A5D7C4F2208A75CB007961F9 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */; };
+		A5D7C4F4208AD839007961F9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F3208AD839007961F9 /* SearchViewController.swift */; };
+		A5D7C4F6208AD861007961F9 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F5208AD861007961F9 /* AdvancedSearchViewController.swift */; };
 		A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15720682A2A00619ADF /* AppDelegate.swift */; };
 		A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15920682A2A00619ADF /* RootViewController.swift */; };
 		A5F7C15C20682A2A00619ADF /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C15B20682A2A00619ADF /* DataViewController.swift */; };
@@ -47,8 +56,19 @@
 
 /* Begin PBXFileReference section */
 		A517A111207308BA00910C3C /* SignInMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMainViewController.swift; sourceTree = "<group>"; };
+		A51B637B208D340B00347A18 /* OnceMemory-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnceMemory-Bridging-Header.h"; sourceTree = "<group>"; };
+		A51B637C208D340D00347A18 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
+		A51B637D208D340D00347A18 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
+		A51B6381208D4E7600347A18 /* AdvnacedResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvnacedResultViewController.swift; sourceTree = "<group>"; };
 		A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSecController.swift; sourceTree = "<group>"; };
+		A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		A57A0D0120898D0C0075E6D4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnceMemory.xcdatamodel; sourceTree = "<group>"; };
+		A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		A5D7C4F3208AD839007961F9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A5D7C4F5208AD861007961F9 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		A5F7C15420682A2A00619ADF /* OnceMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnceMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F7C15720682A2A00619ADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5F7C15920682A2A00619ADF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +141,8 @@
 		A5F7C15620682A2A00619ADF /* OnceMemory */ = {
 			isa = PBXGroup;
 			children = (
+				A51B637C208D340D00347A18 /* DLRadioButton.h */,
+				A51B637D208D340D00347A18 /* DLRadioButton.m */,
 				A5F7C15720682A2A00619ADF /* AppDelegate.swift */,
 				A5F7C15920682A2A00619ADF /* RootViewController.swift */,
 				A5F7C15B20682A2A00619ADF /* DataViewController.swift */,
@@ -139,6 +161,15 @@
 				B313CC7E208D2F5400FDD6BC /* HomepageViewController.swift */,
 				B313CC80208D350600FDD6BC /* GREViewController.swift */,
 				B313CC82208D411100FDD6BC /* FeedbackViewController.swift */,
+				A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */,
+				A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */,
+				A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */,
+				A57A0D0120898D0C0075E6D4 /* DetailViewController.swift */,
+				A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */,
+				A5D7C4F3208AD839007961F9 /* SearchViewController.swift */,
+				A5D7C4F5208AD861007961F9 /* AdvancedSearchViewController.swift */,
+				A51B637B208D340B00347A18 /* OnceMemory-Bridging-Header.h */,
+				A51B6381208D4E7600347A18 /* AdvnacedResultViewController.swift */,
 			);
 			path = OnceMemory;
 			sourceTree = "<group>";
@@ -229,6 +260,7 @@
 				TargetAttributes = {
 					A5F7C15320682A2A00619ADF = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					A5F7C16B20682A2A00619ADF = {
@@ -295,20 +327,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				B313CC79208C49D500FDD6BC /* NewPlanViewController.swift in Sources */,
 				A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */,
 				B313CC7F208D2F5400FDD6BC /* HomepageViewController.swift in Sources */,
 				B313CC81208D350600FDD6BC /* GREViewController.swift in Sources */,
 				B313CC77208C466600FDD6BC /* CopyrightViewController.swift in Sources */,
+				A5D7C4F6208AD861007961F9 /* AdvancedSearchViewController.swift in Sources */,
+				A51B637E208D340D00347A18 /* DLRadioButton.m in Sources */,
+				A57A0D0220898D0C0075E6D4 /* DetailViewController.swift in Sources */,
+				A5D0BCCE2087DFF300B618A9 /* LoginViewController.swift in Sources */,
+				A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */,
+				A51B6382208D4E7600347A18 /* AdvnacedResultViewController.swift in Sources */,
 				A57806A3207C0CC500BCAD0B /* CreateAccountSecController.swift in Sources */,
 				A5F7C15E20682A2A00619ADF /* ModelController.swift in Sources */,
+				A5D7C4F2208A75CB007961F9 /* AddItemViewController.swift in Sources */,
 				A5F7C15C20682A2A00619ADF /* DataViewController.swift in Sources */,
 				A57806A1207C0C9E00BCAD0B /* CreateAccountController.swift in Sources */,
+				A5D7C4F4208AD839007961F9 /* SearchViewController.swift in Sources */,
+				A5D0BCCC2087DC2A00B618A9 /* OnceMemory.xcdatamodeld in Sources */,
 				A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */,
 				B313CC83208D411100FDD6BC /* FeedbackViewController.swift in Sources */,
 				A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */,
 				B313CC85208D49CF00FDD6BC /* DayPlanViewController.swift in Sources */,
 				B313CC75208C38FA00FDD6BC /* SettingsViewController.swift in Sources */,
+				A57A0D0020898CCC0075E6D4 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,12 +521,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WNW77K38M;
 				INFOPLIST_FILE = OnceMemory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = baikal.seal.OnceMemory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnceMemory/OnceMemory-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -493,12 +539,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WNW77K38M;
 				INFOPLIST_FILE = OnceMemory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = baikal.seal.OnceMemory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnceMemory/OnceMemory-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -610,6 +658,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */,
+			);
+			currentVersion = A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */;
+			path = OnceMemory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A5F7C14C20682A2A00619ADF /* Project object */;
 }
