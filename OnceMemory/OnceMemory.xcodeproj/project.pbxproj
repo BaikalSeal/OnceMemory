@@ -28,6 +28,13 @@
 		A5F7C16620682A2A00619ADF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F7C16420682A2A00619ADF /* LaunchScreen.storyboard */; };
 		A5F7C17120682A2A00619ADF /* OnceMemoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C17020682A2A00619ADF /* OnceMemoryTests.swift */; };
 		A5F7C17C20682A2A00619ADF /* OnceMemoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7C17B20682A2A00619ADF /* OnceMemoryUITests.swift */; };
+		B313CC75208C38FA00FDD6BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC74208C38FA00FDD6BC /* SettingsViewController.swift */; };
+		B313CC77208C466600FDD6BC /* CopyrightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC76208C466600FDD6BC /* CopyrightViewController.swift */; };
+		B313CC79208C49D500FDD6BC /* NewPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC78208C49D500FDD6BC /* NewPlanViewController.swift */; };
+		B313CC7F208D2F5400FDD6BC /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC7E208D2F5400FDD6BC /* HomepageViewController.swift */; };
+		B313CC81208D350600FDD6BC /* GREViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC80208D350600FDD6BC /* GREViewController.swift */; };
+		B313CC83208D411100FDD6BC /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC82208D411100FDD6BC /* FeedbackViewController.swift */; };
+		B313CC85208D49CF00FDD6BC /* DayPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313CC84208D49CF00FDD6BC /* DayPlanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		A5F7C17720682A2A00619ADF /* OnceMemoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnceMemoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F7C17B20682A2A00619ADF /* OnceMemoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnceMemoryUITests.swift; sourceTree = "<group>"; };
 		A5F7C17D20682A2A00619ADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B313CC74208C38FA00FDD6BC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B313CC76208C466600FDD6BC /* CopyrightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightViewController.swift; sourceTree = "<group>"; };
+		B313CC78208C49D500FDD6BC /* NewPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanViewController.swift; sourceTree = "<group>"; };
+		B313CC7E208D2F5400FDD6BC /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
+		B313CC80208D350600FDD6BC /* GREViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GREViewController.swift; sourceTree = "<group>"; };
+		B313CC82208D411100FDD6BC /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		B313CC84208D49CF00FDD6BC /* DayPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,12 +148,19 @@
 				A5F7C15B20682A2A00619ADF /* DataViewController.swift */,
 				A5F7C15D20682A2A00619ADF /* ModelController.swift */,
 				A5F7C15F20682A2A00619ADF /* Main.storyboard */,
+				B313CC84208D49CF00FDD6BC /* DayPlanViewController.swift */,
+				B313CC78208C49D500FDD6BC /* NewPlanViewController.swift */,
+				B313CC76208C466600FDD6BC /* CopyrightViewController.swift */,
+				B313CC74208C38FA00FDD6BC /* SettingsViewController.swift */,
 				A5F7C16220682A2A00619ADF /* Assets.xcassets */,
 				A5F7C16420682A2A00619ADF /* LaunchScreen.storyboard */,
 				A5F7C16720682A2A00619ADF /* Info.plist */,
 				A517A111207308BA00910C3C /* SignInMainViewController.swift */,
 				A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */,
 				A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */,
+				B313CC7E208D2F5400FDD6BC /* HomepageViewController.swift */,
+				B313CC80208D350600FDD6BC /* GREViewController.swift */,
+				B313CC82208D411100FDD6BC /* FeedbackViewController.swift */,
 				A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */,
 				A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */,
 				A57A0CFF20898CCC0075E6D4 /* SearchResultsViewController.swift */,
@@ -234,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = BaikalSeal;
 				TargetAttributes = {
 					A5F7C15320682A2A00619ADF = {
@@ -306,6 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				B313CC79208C49D500FDD6BC /* NewPlanViewController.swift in Sources */,
+				A5F7C15A20682A2A00619ADF /* RootViewController.swift in Sources */,
+				B313CC7F208D2F5400FDD6BC /* HomepageViewController.swift in Sources */,
+				B313CC81208D350600FDD6BC /* GREViewController.swift in Sources */,
+				B313CC77208C466600FDD6BC /* CopyrightViewController.swift in Sources */,
 				A5D7C4F6208AD861007961F9 /* AdvancedSearchViewController.swift in Sources */,
 				A51B637E208D340D00347A18 /* DLRadioButton.m in Sources */,
 				A57A0D0220898D0C0075E6D4 /* DetailViewController.swift in Sources */,
@@ -320,7 +347,10 @@
 				A5D7C4F4208AD839007961F9 /* SearchViewController.swift in Sources */,
 				A5D0BCCC2087DC2A00B618A9 /* OnceMemory.xcdatamodeld in Sources */,
 				A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */,
+				B313CC83208D411100FDD6BC /* FeedbackViewController.swift in Sources */,
 				A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */,
+				B313CC85208D49CF00FDD6BC /* DayPlanViewController.swift in Sources */,
+				B313CC75208C38FA00FDD6BC /* SettingsViewController.swift in Sources */,
 				A57A0D0020898CCC0075E6D4 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +420,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -397,6 +428,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -447,6 +479,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -454,6 +487,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
