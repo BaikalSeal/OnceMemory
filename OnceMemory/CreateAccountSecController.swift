@@ -32,6 +32,10 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
         picker.delegate = self
         picker.dataSource = self
         
+        textView!.layer.borderWidth = 0.7
+        textView!.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        textView!.layer.cornerRadius = 5.0
+        
         pickerData = ["What is your first pet's name?", "Where did your mother and father meet?", "What is your favourite food?", "What is your favourite sport?", "What is your best friend's name?"]
     }
     

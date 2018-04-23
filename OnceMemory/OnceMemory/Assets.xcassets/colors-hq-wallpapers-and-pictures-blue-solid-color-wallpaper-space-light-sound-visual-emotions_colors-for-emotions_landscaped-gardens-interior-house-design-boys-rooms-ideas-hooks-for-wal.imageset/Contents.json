@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "colors-hq-wallpapers-and-pictures-blue-solid-color-wallpaper-space-light-sound-visual-emotions_colors-for-emotions_landscaped-gardens-interior-house-design-boys-rooms-ideas-hooks-for-wal.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
