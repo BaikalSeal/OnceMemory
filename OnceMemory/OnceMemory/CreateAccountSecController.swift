@@ -14,7 +14,7 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
 //    @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var picker: UIPickerView!
 
-    @IBOutlet weak var textView: UITextView!
+//    @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var spTextField: UITextField!
     
@@ -24,7 +24,7 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        textView.delegate = self
+        //textView.delegate = self
         spTextField.delegate = self
         
         
@@ -48,28 +48,28 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
         })
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-    }
-    
-    func textView (_ textView: UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool {
-        if(text == "\n"){
-            textView.resignFirstResponder()
-            return false
-        }
-        
-        if range.location >= 20 {
-            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
-            
-            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-            
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-            
-            return false
-        }
-        return true
-    }
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+//    }
+//
+//    func textView (_ textView: UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool {
+//        if(text == "\n"){
+//            textView.resignFirstResponder()
+//            return false
+//        }
+//
+//        if range.location >= 20 {
+//            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
+//
+//            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+//
+//        alertController.addAction(okAction)
+//        self.present(alertController, animated: true, completion: nil)
+//
+//            return false
+//        }
+//        return true
+//    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.4, animations: {
