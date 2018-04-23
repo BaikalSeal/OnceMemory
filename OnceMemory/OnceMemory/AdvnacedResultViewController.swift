@@ -1,30 +1,29 @@
 //
-//  SearchResultsViewController.swift
+//  AdvnacedResultViewController.swift
 //  OnceMemory
 //
-//  Created by 陈建楠 on 2018/4/19.
+//  Created by 陈建楠 on 2018/4/22.
 //  Copyright © 2018年 BaikalSeal. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     var tableView:UITableView?
     
-//    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
+    //    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
     
     var tableItems: Array<(String, String, String, Int, Bool)> = Array<(String, String, String, Int, Bool)>()
     
-//    var itemString: String?
+    //    var itemString: String?
     var itemPriority: Int?
     
-//    var itemTitle: String?
-//
-//    var itemCate: String?
-//
-//    var itemMarked: Bool?
+    var itemTitle: String?
+    
+    var itemCate: String?
+    
+    var itemMarked: Bool?
     
     
     override func loadView() {
@@ -43,7 +42,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         tableItems.append(("chinese", "chn", "chinese", 1, true))
         
-        let tempResult: Array<(String, String, String, Int, Bool)> = self.searchResult(nil, nil, nil, self.itemPriority!, nil)
+        let tempResult: Array<(String, String, String, Int, Bool)> = self.searchResult(self.itemTitle, self.itemCate, nil, self.itemPriority!, self.itemMarked)
         if tempResult.count > 0 {
             tableItems = tempResult
         }
@@ -52,11 +51,11 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func searchResult(_ title: String? = nil, _ cate: String? = nil, _ content: String? = nil, _ priority: Int? = nil, _ marked: Bool? = nil) -> Array<(String, String, String, Int, Bool)> {
         
-//        var sTitle: String
-//        var sCate: String
-//        var sContent: String
-//        var sPriority: Int
-//        var sMarked: Bool
+        //        var sTitle: String
+        //        var sCate: String
+        //        var sContent: String
+        //        var sPriority: Int
+        //        var sMarked: Bool
         
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -72,13 +71,13 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         if title != nil {
             dict["title"] = title
-            predicateArray.append(NSPredicate(format: "title = %s", title!))
-//            predicate1 = NSPredicate(format: "title = %s", title!)
+            predicateArray.append(NSPredicate(format: "title = %@", title!))
+            //            predicate1 = NSPredicate(format: "title = %s", title!)
         }
         
         if cate != nil {
             dict["cate"] = cate
-            predicateArray.append(NSPredicate(format: "cate = %s", cate!))
+            predicateArray.append(NSPredicate(format: "cate = %@", cate!))
         }
         
         if priority != nil {
@@ -86,20 +85,24 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             predicateArray.append(NSPredicate(format: "priority = %d", priority!))
         }
         
+        
         if marked != nil {
             dict["marked"] = marked
-            predicateArray.append(NSPredicate(format: "priority = %d", priority!))
+            var localP = 0
+            if marked == true {localP = 1}
+            else{localP = 0}
+            predicateArray.append(NSPredicate(format: "marked = %d", localP))
         }
         
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicateArray)
         
         
         
-//        let NSdict = NSDictionary(dictionary: dict)
+        //        let NSdict = NSDictionary(dictionary: dict)
         
-//        let predicate = NSPredicate()
-//        let predicate = NSPredicate(format: "priority = 1")
-//        predicate.withSubstitutionVariables(dict)
+        //        let predicate = NSPredicate()
+        //        let predicate = NSPredicate(format: "priority = 1")
+        //        predicate.withSubstitutionVariables(dict)
         
         fetchRequest.predicate = compoundPredicate
         
@@ -126,7 +129,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         return resultArray
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
