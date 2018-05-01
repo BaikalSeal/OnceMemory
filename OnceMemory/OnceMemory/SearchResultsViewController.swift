@@ -15,12 +15,19 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
 //    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
     
-    var tableItems: Array<(String, String, String, Int, Bool)> = Array<(String, String, String, Int, Bool)>()
+    var tableItems: Array<(String, String, Int, Bool)> = Array<(String, String, Int, Bool)>()
     
 //    var itemString: String?
-    var itemPriority: Int?
+//    var itemPriority: Int?
     
-//    var itemTitle: String?
+    var itemTitle: String?
+    
+    var returnedOptions:[String]  = []
+    
+    var returnedItems: Array<(String?, String, String?, Int16, Int16, Int16, Bool)> = Array<(String?, String, String?, Int16, Int16, Int16, Bool)>()
+    
+    var selectedIndex = -1
+    
 //
 //    var itemCate: String?
 //
@@ -41,16 +48,18 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
         self.view.addSubview(self.tableView!)
         
-        tableItems.append(("chinese", "chn", "chinese", 1, true))
+        tableItems.append(("chinese", "chn", 1, true))
         
-        let tempResult: Array<(String, String, String, Int, Bool)> = self.searchResult(nil, nil, nil, self.itemPriority!, nil)
+        let tempResult: Array<(String, String, Int, Bool)> = self.searchResult(self.itemTitle!, nil, nil, nil)
+        
+        
         if tempResult.count > 0 {
             tableItems = tempResult
         }
         // Do any additional setup after loading the view.
     }
     
-    func searchResult(_ title: String? = nil, _ cate: String? = nil, _ content: String? = nil, _ priority: Int? = nil, _ marked: Bool? = nil) -> Array<(String, String, String, Int, Bool)> {
+    func searchResult(_ title: String? = nil, _ cate: String? = nil, _ content: String? = nil, _ priority: Int? = nil, _ marked: Bool? = nil) -> Array<(String, String, Int, Bool)> {
         
 //        var sTitle: String
 //        var sCate: String
@@ -61,7 +70,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Records>(entityName: "Records")
+        let fetchRequest = NSFetchRequest<Plan>(entityName: "Plan")
         fetchRequest.fetchLimit = 5
         fetchRequest.fetchOffset = 0
         
@@ -72,13 +81,13 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         if title != nil {
             dict["title"] = title
-            predicateArray.append(NSPredicate(format: "title = %s", title!))
+            predicateArray.append(NSPredicate(format: "title = %@", title!))
 //            predicate1 = NSPredicate(format: "title = %s", title!)
         }
         
         if cate != nil {
             dict["cate"] = cate
-            predicateArray.append(NSPredicate(format: "cate = %s", cate!))
+            predicateArray.append(NSPredicate(format: "category = %@", cate!))
         }
         
         if priority != nil {
@@ -89,6 +98,14 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         if marked != nil {
             dict["marked"] = marked
             predicateArray.append(NSPredicate(format: "priority = %d", priority!))
+        }
+        
+        if UserDefaultGetter.getName() != nil {
+            dict["username"] = UserDefaultGetter.getName()
+            predicateArray.append(NSPredicate(format: "username = %@", UserDefaultGetter.getName()!))
+        }
+        else{
+            predicateArray.append(NSPredicate(format: "username == nil"))
         }
         
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicateArray)
@@ -103,7 +120,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         fetchRequest.predicate = compoundPredicate
         
-        var resultArray: Array<(String, String, String, Int, Bool)> = Array<(String, String, String, Int, Bool)>()
+        var resultArray: Array<(String, String, Int, Bool)> = Array<(String, String, Int, Bool)>()
         
         //查询操作
         do {
@@ -111,17 +128,14 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             
             if fetchedObjects.count > 0 {
                 for item in fetchedObjects {
-                    resultArray.append((item.title!, item.cate!, item.content!, Int(item.priority), item.marked))
+                    resultArray.append((item.title!, item.category!,  Int(item.priority), item.marked))
+                    returnedItems.append((item.username, item.title!, item.category!, item.numDays, item.numLessons, item.priority, item.marked))
+                    returnedOptions.append(item.title!)
                 }
             }
         }
-        catch {
-            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
-            
-            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-            
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+        catch let err as NSError{
+            print (err.debugDescription)
         }
         
         return resultArray
@@ -157,16 +171,17 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     // UITableViewDelegate 方法，处理列表项的选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView!.deselectRow(at: indexPath, animated: true)
-        let itemString = self.tableItems[indexPath.row].0
+//        let itemString = self.tableItems[indexPath.row].0
+        selectedIndex = indexPath.row
         
-        self.performSegue(withIdentifier: "ShowDetailView", sender: itemString)
+        self.performSegue(withIdentifier: "toSearchDetail", sender: self)
     }
     
     //在这个方法中给新页面传递参数
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetailView"{
-            let controller = segue.destination as! DetailViewController
-            controller.itemString = sender as? String
+        if segue.identifier == "toSearchDetail" {
+            let destViewController : SearchDetailedPlanViewController = segue.destination as! SearchDetailedPlanViewController
+            destViewController.plan = returnedItems[selectedIndex]
         }
     }
     

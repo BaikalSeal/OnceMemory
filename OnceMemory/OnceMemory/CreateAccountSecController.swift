@@ -14,8 +14,9 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
 //    @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var picker: UIPickerView!
 
-    @IBOutlet weak var textView: UITextView!
+//    @IBOutlet weak var textView: UITextView!
     
+//    @IBOutlet weak var spTextField: UITextField!
     @IBOutlet weak var spTextField: UITextField!
     
     var pickerData: [String] = [String]()
@@ -24,7 +25,7 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        textView.delegate = self
+//        textView.delegate = self
         spTextField.delegate = self
         
         
@@ -32,10 +33,10 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
         picker.delegate = self
         picker.dataSource = self
         
-        textView!.layer.borderWidth = 0.7
-        textView!.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        textView!.layer.cornerRadius = 5.0
-        
+//        textView!.layer.borderWidth = 0.7
+//        textView!.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+//        textView!.layer.cornerRadius = 5.0
+//
         pickerData = ["What is your first pet's name?", "Where did your mother and father meet?", "What is your favourite food?", "What is your favourite sport?", "What is your best friend's name?"]
     }
     
@@ -46,34 +47,34 @@ class CreateAccountSecController: UIViewController, UIPickerViewDelegate, UIPick
         // Dispose of any resources that can be recreated.
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.view.frame.origin.y = -220
-        })
-    }
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        UIView.animate(withDuration: 0.4, animations: {
+//            self.view.frame.origin.y = -220
+//        })
+//    }
+//
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+//    }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-    }
-    
-    func textView (_ textView: UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool {
-        if(text == "\n"){
-            textView.resignFirstResponder()
-            return false
-        }
-        
-        if range.location >= 20 {
-            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
-            
-            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-            
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-            
-            return false
-        }
-        return true
-    }
+//    func textView (_ textView: UITextView, shouldChangeTextIn range:NSRange, replacementText text:String) -> Bool {
+//        if(text == "\n"){
+//            textView.resignFirstResponder()
+//            return false
+//        }
+//
+//        if range.location >= 20 {
+//            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
+//
+//            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+//
+//        alertController.addAction(okAction)
+//        self.present(alertController, animated: true, completion: nil)
+//
+//            return false
+//        }
+//        return true
+//    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.4, animations: {

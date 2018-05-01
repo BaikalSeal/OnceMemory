@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usrnameTextField: UITextField!
     
@@ -21,13 +21,21 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        usrnameTextField.delegate = self
+        pwdTextField.delegate = self
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
     
 
@@ -49,19 +57,33 @@ class LoginViewController: UIViewController {
         
         
         //设置查询条件
-        let predicate = NSPredicate(format: "username = 'jerry' ", "password = '123456'")
-        fetchRequest.predicate = predicate
+        
+        let usrname = self.usrnameTextField.text!
+        let pwd = self.pwdTextField.text!
+//        let predicate = NSPredicate(format: "username = 'jerry' ", "password = '123456'")
+        
+        var predicateArray = Array<NSPredicate>()
+        predicateArray.append(NSPredicate(format: "username = %@", usrname))
+        predicateArray.append(NSPredicate(format: "password = %@", pwd))
+//        let predicateUsrname = NSPredicate(format: "username = %@", usrname)
+//        let predicatePwd = NSPredicate(format: "password = %@", pwd)
+        
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicateArray)
+        
+        
+        fetchRequest.predicate = compoundPredicate
         
         //查询操作
         do {
             let fetchedObjects = try context.fetch(fetchRequest)
             
             if fetchedObjects.count > 0 {
-                self.performSegue(withIdentifier: "login", sender: self)
+                self.performSegue(withIdentifier: "toLoggedIn", sender: self)
+                UserDefaultGetter.addName(usrname)
             }
             
             else{
-                let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
+                let alertController = UIAlertController(title: "Attention", message: "Log in failed, your username or password may be incorrect.", preferredStyle:  .alert)
         
                 let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
         
@@ -70,7 +92,7 @@ class LoginViewController: UIViewController {
             }
         }
         catch {
-            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
+            let alertController = UIAlertController(title: "Attention", message: "Log in failed, your username or password may be incorrect.", preferredStyle:  .alert)
             
             let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
             

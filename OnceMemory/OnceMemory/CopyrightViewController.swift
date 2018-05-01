@@ -1,31 +1,18 @@
 //
-//  DetailViewController.swift
+//  CopyrightViewController.swift
 //  OnceMemory
 //
-//  Created by 陈建楠 on 2018/4/19.
-//  Copyright © 2018年 BaikalSeal. All rights reserved.
+//  Created by Rui Huang on 4/22/18.
+//  Copyright © 2018 BaikalSeal. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    
-    var itemString: String?
+class CopyrightViewController: UIViewController {
 
-    @IBOutlet weak var textField: UITextField!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textField.text = itemString
-        
-        let alertController = UIAlertController(title: "Attention", message: itemString, preferredStyle:  .alert)
-        
-        let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-        
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+
         // Do any additional setup after loading the view.
     }
 

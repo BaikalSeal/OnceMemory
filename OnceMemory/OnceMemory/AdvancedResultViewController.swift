@@ -14,7 +14,7 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
     
     //    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
     
-    var tableItems: Array<(String, String, String, Int, Bool)> = Array<(String, String, String, Int, Bool)>()
+    var tableItems: Array<(String, String, Int, Bool)> = Array<(String, String, Int, Bool)>()
     
     //    var itemString: String?
     var itemPriority: Int?
@@ -25,6 +25,11 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
     
     var itemMarked: Bool?
     
+    var returnedOptions:[String]  = []
+    
+    var returnedItems: Array<(String?, String, String?, Int16, Int16, Int16, Bool)> = Array<(String?, String, String?, Int16, Int16, Int16, Bool)>()
+    
+    var selectedIndex = -1
     
     override func loadView() {
         super.loadView()
@@ -40,16 +45,16 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
         self.view.addSubview(self.tableView!)
         
-        tableItems.append(("chinese", "chn", "chinese", 1, true))
+        tableItems.append(("chinese", "chn", 1, true))
         
-        let tempResult: Array<(String, String, String, Int, Bool)> = self.searchResult(self.itemTitle, self.itemCate, nil, self.itemPriority!, self.itemMarked)
+        let tempResult: Array<(String, String, Int, Bool)> = self.searchResult(self.itemTitle, self.itemCate, self.itemPriority!, self.itemMarked)
         if tempResult.count > 0 {
             tableItems = tempResult
         }
         // Do any additional setup after loading the view.
     }
     
-    func searchResult(_ title: String? = nil, _ cate: String? = nil, _ content: String? = nil, _ priority: Int? = nil, _ marked: Bool? = nil) -> Array<(String, String, String, Int, Bool)> {
+    func searchResult(_ title: String? = nil, _ cate: String? = nil, _ priority: Int? = nil, _ marked: Bool? = nil) -> Array<(String, String, Int, Bool)> {
         
         //        var sTitle: String
         //        var sCate: String
@@ -60,7 +65,7 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Records>(entityName: "Records")
+        let fetchRequest = NSFetchRequest<Plan>(entityName: "Plan")
         fetchRequest.fetchLimit = 5
         fetchRequest.fetchOffset = 0
         
@@ -94,6 +99,14 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
             predicateArray.append(NSPredicate(format: "marked = %d", localP))
         }
         
+        if UserDefaultGetter.getName() != nil {
+            dict["username"] = UserDefaultGetter.getName()
+            predicateArray.append(NSPredicate(format: "username = %@", UserDefaultGetter.getName()!))
+        }
+        else {
+            predicateArray.append(NSPredicate(format: "username == nil"))
+        }
+        
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicateArray)
         
         
@@ -106,7 +119,7 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
         
         fetchRequest.predicate = compoundPredicate
         
-        var resultArray: Array<(String, String, String, Int, Bool)> = Array<(String, String, String, Int, Bool)>()
+        var resultArray: Array<(String, String, Int, Bool)> = Array<(String, String, Int, Bool)>()
         
         //查询操作
         do {
@@ -114,17 +127,14 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
             
             if fetchedObjects.count > 0 {
                 for item in fetchedObjects {
-                    resultArray.append((item.title!, item.cate!, item.content!, Int(item.priority), item.marked))
+                    resultArray.append((item.title!, item.category!, Int(item.priority), item.marked))
+                    returnedItems.append((item.username, item.title!, item.category!, item.numDays, item.numLessons, item.priority, item.marked))
+                    returnedOptions.append(item.title!)
                 }
             }
         }
-        catch {
-            let alertController = UIAlertController(title: "Attention", message: "You can input up to 50 words", preferredStyle:  .alert)
-            
-            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
-            
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+        catch let err as NSError{
+            print (err.debugDescription)
         }
         
         return resultArray
@@ -160,16 +170,18 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
     // UITableViewDelegate 方法，处理列表项的选中事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView!.deselectRow(at: indexPath, animated: true)
-        let itemString = self.tableItems[indexPath.row].0
+//        let itemString = self.tableItems[indexPath.row].0
         
-        self.performSegue(withIdentifier: "ShowDetailView", sender: itemString)
+        selectedIndex = indexPath.row
+        
+        self.performSegue(withIdentifier: "toAdvancedSearchDetail", sender: self)
     }
     
     //在这个方法中给新页面传递参数
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetailView"{
-            let controller = segue.destination as! DetailViewController
-            controller.itemString = sender as? String
+        if segue.identifier == "toAdvancedSearchDetail" {
+            let destViewController : SearchDetailedPlanViewController = segue.destination as! SearchDetailedPlanViewController
+            destViewController.plan = returnedItems[selectedIndex]
         }
     }
     

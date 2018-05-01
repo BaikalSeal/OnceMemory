@@ -26,15 +26,23 @@ class AddItemViewController: UIViewController {
     
     @IBAction func funcBtn(_ addBtn: UIButton) {
         
-        var cates = ["English", "Math", "Chemistry"]
-        var contents = ["eng", "math", "chemi"]
-        var marks = [true, false, true]
-        var priorities = [0, 1, 1]
-        var titles = ["Eng", "Mathematics", "Che"]
+//        var cates = ["English", "Math", "Chemistry"]
+//        var contents = ["eng", "math", "chemi"]
+//        var marks = [true, false, true]
+//        var priorities = [0, 1, 1]
+//        var titles = ["Eng", "Mathematics", "Che"]
+//
+//        var cates = ["English", "Math", "Chemistry"]
+//        var contents = ["eng", "math", "chemi"]
+//        var marks = [true, false, true]
+//        var priorities = [0, 1, 1]
+//        var titles = ["Eng", "Mathematics", "Che"]
+//
+//        for index in 0...2 {
+//            self.addRecords(titles[index], Int16(priorities[index]), cates[index], contents[index], marks[index])
+//        }
         
-        for index in 0...2 {
-            self.addRecords(titles[index], Int16(priorities[index]), cates[index], contents[index], marks[index])
-        }
+         self.addRecords("GRE", Int16(2), "english", "content of GRE", true)
         
     }
     
