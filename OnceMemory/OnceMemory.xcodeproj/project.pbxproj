@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A517A111207308BA00910C3C /* SignInMainViewController.swift */; };
-		A51B637E208D340D00347A18 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A51B637D208D340D00347A18 /* DLRadioButton.m */; };
 		A51B6382208D4E7600347A18 /* AdvancedResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B6381208D4E7600347A18 /* AdvancedResultViewController.swift */; };
 		A547CA3F208FF19500CD57B2 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A547CA3E208FF19500CD57B2 /* DataViewController.swift */; };
 		A5707A8A208FE64700030E0D /* SecMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5707A89208FE64700030E0D /* SecMain.storyboard */; };
@@ -35,6 +34,7 @@
 		A5872968209860B10019F1D5 /* UserDefaultGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872967209860B10019F1D5 /* UserDefaultGetter.swift */; };
 		A587296A2098F7B00019F1D5 /* DetailedPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58729692098F7B00019F1D5 /* DetailedPlanViewController.swift */; };
 		A587296C2098F7FA0019F1D5 /* NewPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587296B2098F7FA0019F1D5 /* NewPlanViewController.swift */; };
+		A587296E209909F40019F1D5 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A587296D209909F40019F1D5 /* DLRadioButton.m */; };
 		A5D0BCCC2087DC2A00B618A9 /* OnceMemory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */; };
 		A5D0BCCE2087DFF300B618A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */; };
 		A5D7C4F2208A75CB007961F9 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */; };
@@ -70,8 +70,6 @@
 /* Begin PBXFileReference section */
 		A517A111207308BA00910C3C /* SignInMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMainViewController.swift; sourceTree = "<group>"; };
 		A51B637B208D340B00347A18 /* OnceMemory-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnceMemory-Bridging-Header.h"; sourceTree = "<group>"; };
-		A51B637C208D340D00347A18 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
-		A51B637D208D340D00347A18 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		A51B6381208D4E7600347A18 /* AdvancedResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedResultViewController.swift; sourceTree = "<group>"; };
 		A547CA3E208FF19500CD57B2 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		A5707A89208FE64700030E0D /* SecMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecMain.storyboard; sourceTree = "<group>"; };
@@ -89,6 +87,8 @@
 		A5872967209860B10019F1D5 /* UserDefaultGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultGetter.swift; sourceTree = "<group>"; };
 		A58729692098F7B00019F1D5 /* DetailedPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedPlanViewController.swift; sourceTree = "<group>"; };
 		A587296B2098F7FA0019F1D5 /* NewPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlanViewController.swift; sourceTree = "<group>"; };
+		A587296D209909F40019F1D5 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = DLRadioButton/DLRadioButton.m; sourceTree = SOURCE_ROOT; };
+		A587296F209909F90019F1D5 /* DLRadioButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = DLRadioButton/DLRadioButton.h; sourceTree = SOURCE_ROOT; };
 		A5D0BCCB2087DC2A00B618A9 /* OnceMemory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnceMemory.xcdatamodel; sourceTree = "<group>"; };
 		A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5D7C4F1208A75CB007961F9 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
@@ -158,8 +158,6 @@
 		A5F7C15620682A2A00619ADF /* OnceMemory */ = {
 			isa = PBXGroup;
 			children = (
-				A51B637C208D340D00347A18 /* DLRadioButton.h */,
-				A51B637D208D340D00347A18 /* DLRadioButton.m */,
 				A5F7C15720682A2A00619ADF /* AppDelegate.swift */,
 				A5707A89208FE64700030E0D /* SecMain.storyboard */,
 				A5F7C15920682A2A00619ADF /* RootViewController.swift */,
@@ -178,8 +176,10 @@
 				A5F7C16220682A2A00619ADF /* Assets.xcassets */,
 				A5F7C16420682A2A00619ADF /* LaunchScreen.storyboard */,
 				A5F7C16720682A2A00619ADF /* Info.plist */,
+				A587296F209909F90019F1D5 /* DLRadioButton.h */,
 				A517A111207308BA00910C3C /* SignInMainViewController.swift */,
 				A57806A0207C0C9E00BCAD0B /* CreateAccountController.swift */,
+				A587296D209909F40019F1D5 /* DLRadioButton.m */,
 				A57806A2207C0CC500BCAD0B /* CreateAccountSecController.swift */,
 				A5D0BCCA2087DC2A00B618A9 /* OnceMemory.xcdatamodeld */,
 				A5D0BCCD2087DFF300B618A9 /* LoginViewController.swift */,
@@ -353,7 +353,6 @@
 			files = (
 				A5D7C4F6208AD861007961F9 /* AdvancedSearchViewController.swift in Sources */,
 				A587295C20983D590019F1D5 /* SearchDetailedPlanViewController.swift in Sources */,
-				A51B637E208D340D00347A18 /* DLRadioButton.m in Sources */,
 				A587296A2098F7B00019F1D5 /* DetailedPlanViewController.swift in Sources */,
 				A5707A94208FE67500030E0D /* FeedbackViewController.swift in Sources */,
 				A547CA3F208FF19500CD57B2 /* DataViewController.swift in Sources */,
@@ -373,6 +372,7 @@
 				A5F7C15820682A2A00619ADF /* AppDelegate.swift in Sources */,
 				A587296C2098F7FA0019F1D5 /* NewPlanViewController.swift in Sources */,
 				A587295820982AB50019F1D5 /* HomepageViewController.swift in Sources */,
+				A587296E209909F40019F1D5 /* DLRadioButton.m in Sources */,
 				A5707A97208FE67500030E0D /* GREViewController.swift in Sources */,
 				A517A112207308BA00910C3C /* SignInMainViewController.swift in Sources */,
 				A57A0D0020898CCC0075E6D4 /* SearchResultsViewController.swift in Sources */,
