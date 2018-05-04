@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
+class AdvancedSearchViewController: SuperViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -17,10 +17,11 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var slider: UISlider!
     
+    @IBOutlet weak var naviBar: UINavigationBar!
     
     var marked: Bool?
     
-    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
     let step: Float = 1
     
@@ -54,26 +55,26 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 return true
             }
 
-            let aSet = NSCharacterSet(charactersIn:alphabet).inverted
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet() + " _").inverted
             let compSepByCharInSet = string.components(separatedBy: aSet)
             let numberFiltered = compSepByCharInSet.joined(separator: "")
 
             let textLength = text.count + string.count - range.length
             
-            return textLength < 24 && string == numberFiltered
+            return textLength < 20 && string == numberFiltered
         }
         else if cateTextField == textField {
             guard let text = textField.text else {
                 return true
             }
             
-            let aSet = NSCharacterSet(charactersIn:alphabet).inverted
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet()).inverted
             let compSepByCharInSet = string.components(separatedBy: aSet)
             let numberFiltered = compSepByCharInSet.joined(separator: "")
             
             let textLength = text.count + string.count - range.length
             
-            return textLength < 24 && string == numberFiltered
+            return textLength < 20 && string == numberFiltered
         }
         return true
     }
@@ -95,6 +96,15 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     @IBAction func funcBtn(_ sender: UIButton) {
         
         var itemKeyValue = Dictionary<String, Any>()
+        
+        let searchWithoutSpaces = titleTextField.text?.trimmingCharacters(in: .whitespaces)
+        
+        if self.titleTextField.text?.count != 0 && searchWithoutSpaces?.count == 0{
+            let alertController = UIAlertController(title: "Attention", message:
+                "The title cannot be empty", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
         
         if self.titleTextField.text?.count != 0 {
             itemKeyValue["title"] = self.titleTextField.text
@@ -124,6 +134,21 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
+        UISlider.appearance().thumbTintColor = theme.navigationBarColor
+        
+        UISlider.appearance().minimumTrackTintColor = theme.navigationBarColor
+    }
     
     
     

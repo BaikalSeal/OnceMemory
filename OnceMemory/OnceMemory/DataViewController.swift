@@ -8,9 +8,16 @@
 
 import UIKit
 
-class DataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DataViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
     
-//    let sideBarOptions = ["Sign In / Sign Up", "Settings", "Feedback", "Copyright"]
+    @IBOutlet weak var naviBar: UINavigationBar!
+    //    let sideBarOptions = ["Sign In / Sign Up", "Settings", "Feedback", "Copyright"]
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var loginLabel: UILabel!
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    
     
     var sideBarOptions: Array<String> = []
     
@@ -26,6 +33,8 @@ class DataViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         name = UserDefaultGetter.getName()
         
+        self.tableView.separatorColor = UIColor.clear
+        
         if (name != nil){
             self.registered = true
         }
@@ -35,9 +44,13 @@ class DataViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if (!self.registered) {
             self.sideBarOptions = ["Sign In / Sign Up", "Settings", "Feedback", "Copyright"]
+            loginLabel.text = ""
+            usernameLabel.text = ""
         }
         else{
             self.sideBarOptions = ["Settings", "Feedback", "Copyright", "Logout"]
+            loginLabel.text = "You have logged in as"
+            usernameLabel.text = name
         }
         
         
@@ -61,6 +74,16 @@ class DataViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "sideBar")
         cell.textLabel?.text = sideBarOptions[indexPath.row]
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.white
+//        cell.tintColor = UIColor.white
+//        cell.accessoryView.
+//        cell.accessoryView.
+        let imageName = "white_arrow.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x:0, y:0, width: 18, height:16)
+        cell.accessoryView = imageView
         return (cell)
     }
     
@@ -108,6 +131,27 @@ class DataViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "toLogout"{
             UserDefaultGetter.removeName()
         }
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.sideBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.sideBarColor
+        self.view.addSubview(barView)
+        self.tableView.backgroundColor = theme.sideBarColor
+        self.view.backgroundColor = theme.sideBarColor
+//        if (theme.navigationBarColor != UIColor.white){
+//            UIApplication.shared.statusBarStyle = .lightContent
+//        }
+//        else{
+//            UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+//        }
     }
 
 

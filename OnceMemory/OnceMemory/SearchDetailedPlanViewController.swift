@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SearchDetailedPlanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchDetailedPlanViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     var days: [String] = []
@@ -17,6 +17,16 @@ class SearchDetailedPlanViewController: UIViewController, UITableViewDelegate, U
     var plan: (String?, String, String?, Int16, Int16, Int16, Bool) = ("", "", "", 0, 0, 0, true)
     var dayPlans : [[Int]] = []
     var selectedIndex: Int = -1
+    
+    var itemPriority: Int?
+    
+    var itemTitle: String?
+    
+    var itemCate: String?
+    
+    var itemMarked: Bool?
+    
+    var pController: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,15 +64,42 @@ class SearchDetailedPlanViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        performSegue(withIdentifier: "toDayPlan", sender: self)
+        performSegue(withIdentifier: "toSearchDayPlan", sender: self)
     }
     
+    @IBAction func backBtn(_ sender: Any) {
+        if (self.pController == 0){
+            performSegue(withIdentifier: "backToResult", sender: self)
+        }
+        else{
+            performSegue(withIdentifier: "backToAdvancedResult", sender: self)
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDayPlan" {
-            let destViewController : DayPlanViewController = segue.destination as! DayPlanViewController
+        if segue.identifier == "toSearchDayPlan" {
+            let destViewController : SearchDayPlanViewController = segue.destination as! SearchDayPlanViewController
             destViewController.lessons = dayPlans[selectedIndex]
             destViewController.day = selectedIndex+1
             destViewController.plan = self.plan
+            destViewController.itemPriority = self.itemPriority
+            destViewController.itemCate = self.itemCate
+            destViewController.itemTitle = self.itemTitle
+            destViewController.itemMarked = self.itemMarked
+            destViewController.pController = self.pController
+        }
+        else if segue.identifier == "backToResult" {
+            let destViewController : SearchResultsViewController = segue.destination as! SearchResultsViewController
+            destViewController.itemTitle = self.itemTitle
+        }
+        
+        else if segue.identifier == "backToAdvancedResult" {
+            let destViewController : AdvnacedResultViewController = segue.destination as! AdvnacedResultViewController
+            destViewController.itemPriority = self.itemPriority
+            destViewController.itemCate = self.itemCate
+            destViewController.itemTitle = self.itemTitle
+            destViewController.itemMarked = self.itemMarked
         }
         
     }
@@ -143,6 +180,18 @@ class SearchDetailedPlanViewController: UIViewController, UITableViewDelegate, U
         
     }
     
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        navigationBar.barTintColor = theme.navigationBarColor
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        navigationBar.tintColor = theme.barItemColor
+        navigationBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
+    }
     /*
     // MARK: - Navigation
 

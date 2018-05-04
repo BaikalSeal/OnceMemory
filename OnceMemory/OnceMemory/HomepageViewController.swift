@@ -9,8 +9,10 @@
 import UIKit
 import CoreData 
 
-class HomepageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class HomepageViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var naviBar: UINavigationBar!
+    
     // var homepageOptions = ["GRE"]
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,8 +23,34 @@ class HomepageViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getAllData()
+        let colorTheme = UserDefaultGetter.getTheme()
+        
+        if (colorTheme != nil){
+            let theme = getThemeType(colorTheme!)
+            self.switchTheme(type: theme)
+        }
+        else {
+            self.switchTheme(type: ThemeType.blueTheme)
+            UserDefaultGetter.setTheme(3)
+        }
 //        UserDefaultGetter.removeName()
         // Do any additional setup after loading the view.
+    }
+    
+    func getThemeType(_ number: Int) -> ThemeType {
+        switch number {
+        case 0:
+            return ThemeType.blackTheme
+        case 1:
+            return ThemeType.greenTheme
+        case 2:
+            return ThemeType.redTheme
+        case 3:
+            return ThemeType.blueTheme
+        default:
+            break
+        }
+        return ThemeType.blueTheme
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +99,11 @@ class HomepageViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "homepage")
         cell.textLabel?.text = homepageOptions[indexPath.row]
+        let imageName = "right_arrow.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x:0, y:0, width: 18, height:16)
+        cell.accessoryView = imageView
         return (cell)
     }
     
@@ -115,6 +148,36 @@ class HomepageViewController: UIViewController, UITableViewDelegate, UITableView
             //            self.tableView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: true)
             
         }
+    }
+    
+//    func refreshData() {
+//        homepageOptions.removeAll()
+//        homepageOptionObjects.removeAll()
+//        self.getAllData()
+////        self.tableView.reloadData()
+//    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
+        if (theme.navigationBarColor != UIColor.white){
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
+        else{
+            UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        }
+    }
+    
+    func switchTheme(type: ThemeType){
+        ThemeManager.switcherTheme(type: type)
     }
     
 

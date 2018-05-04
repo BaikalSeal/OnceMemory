@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NewPlanViewController: UIViewController, UITextFieldDelegate {
+class NewPlanViewController: SuperViewController, UITextFieldDelegate {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
@@ -18,11 +18,14 @@ class NewPlanViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var priority: UISlider!
     @IBOutlet weak var marked: UISwitch!
     
+    @IBOutlet weak var naviBar: UINavigationBar!
+    
     let step: Float = 1
     
     @IBAction func saveNewPlan(_ sender: UIBarButtonItem) {
         let username = UserDefaultGetter.getName()
-        if titleField.text?.count == 0 {
+        let titleWithoutWhitespaces = titleField.text?.trimmingCharacters(in: .whitespaces)
+        if titleField.text?.count == 0 || titleWithoutWhitespaces?.count == 0{
             let alertController = UIAlertController(title: "Attention", message:
                 "Please enter the title of your plan", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
@@ -32,7 +35,12 @@ class NewPlanViewController: UIViewController, UITextFieldDelegate {
                 "Please enter the number of days to review", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
-        } else if numLessonsField.text?.count == 0 {
+        } else if Int((numDaysField.text)!)! < 2 {
+            let alertController = UIAlertController(title: "Attention", message:
+                "Review days must be greater than 1", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }else if numLessonsField.text?.count == 0 {
             let alertController = UIAlertController(title: "Attention", message:
                 "Please enter the number of lessons to review", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
@@ -110,6 +118,76 @@ class NewPlanViewController: UIViewController, UITextFieldDelegate {
         self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if titleField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet() + " _" + Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength < 20 && string == numberFiltered
+        }
+        else if categoryField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength < 20 && string == numberFiltered
+        }
+        else if numDaysField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength < 3 && string == numberFiltered
+        }
+        else  if numLessonsField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength < 3 && string == numberFiltered
+        }
+        return true
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
+        UISlider.appearance().thumbTintColor = theme.navigationBarColor
+        UISlider.appearance().minimumTrackTintColor = theme.navigationBarColor
+    }
     /*
     // MARK: - Navigation
 

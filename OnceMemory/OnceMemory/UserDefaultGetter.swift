@@ -47,5 +47,18 @@ class UserDefaultGetter {
         UserDefaults.standard.removeObject(forKey: "usrname")
     }
     
+    static func setTheme(_ color: Int) {
+        UserDefaults.standard.set(color, forKey: "theme")
+    }
+    
+    static func getTheme() -> Int? {
+        let color = UserDefaults.standard.integer(forKey: "theme")
+        if (color != -1){
+            return color
+        }
+        else {
+            return nil
+        }
+    }
     
 }

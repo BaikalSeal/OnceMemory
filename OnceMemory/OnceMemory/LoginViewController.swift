@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: SuperViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usrnameTextField: UITextField!
     
@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmButton: UIButton!
     
     @IBOutlet weak var clearButton: UIButton!
+    
+    @IBOutlet weak var naviBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //
 //        alertController.addAction(okAction)
 //        self.present(alertController, animated: true, completion: nil)
+        
+        if self.usrnameTextField.text == nil || (self.usrnameTextField.text?.count)! < 3 {
+            let alertController = UIAlertController(title: "Attention", message: "Username length cannot be shorter than 3!", preferredStyle:  .alert)
+            
+            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if self.pwdTextField.text == nil || (self.pwdTextField.text?.count)! < 8 {
+            let alertController = UIAlertController(title: "Attention", message: "Password length cannot be shorter than 8!", preferredStyle:  .alert)
+            
+            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
 //
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -78,8 +102,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let fetchedObjects = try context.fetch(fetchRequest)
             
             if fetchedObjects.count > 0 {
-                self.performSegue(withIdentifier: "toLoggedIn", sender: self)
                 UserDefaultGetter.addName(usrname)
+                self.performSegue(withIdentifier: "toLoggedIn", sender: self)
             }
             
             else{
@@ -99,6 +123,56 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toLoggedIn"{
+//            let controller = segue.destination as! HomepageViewController
+//            controller.refreshData()
+        }
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if usrnameTextField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet()+Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength <= 10 && string == numberFiltered
+        }
+        else if pwdTextField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet()+Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength <= 15 && string == numberFiltered
+        }
+        return true
     }
     /*
     // MARK: - Navigation

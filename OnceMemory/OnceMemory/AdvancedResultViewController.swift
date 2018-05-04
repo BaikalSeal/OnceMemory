@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 
-class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class AdvnacedResultViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource  {
+    
     var tableView:UITableView?
     
+    @IBOutlet weak var naviBar: UINavigationBar!
     //    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
     
     var tableItems: Array<(String, String, Int, Bool)> = Array<(String, String, Int, Bool)>()
@@ -45,7 +47,7 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
         self.view.addSubview(self.tableView!)
         
-        tableItems.append(("chinese", "chn", 1, true))
+//        tableItems.append(("chinese", "chn", 1, true))
         
         let tempResult: Array<(String, String, Int, Bool)> = self.searchResult(self.itemTitle, self.itemCate, self.itemPriority!, self.itemMarked)
         if tempResult.count > 0 {
@@ -182,7 +184,25 @@ class AdvnacedResultViewController: UIViewController, UITableViewDelegate, UITab
         if segue.identifier == "toAdvancedSearchDetail" {
             let destViewController : SearchDetailedPlanViewController = segue.destination as! SearchDetailedPlanViewController
             destViewController.plan = returnedItems[selectedIndex]
+            destViewController.itemPriority = self.itemPriority
+            destViewController.itemCate = self.itemCate
+            destViewController.itemTitle = self.itemTitle
+            destViewController.itemMarked = self.itemMarked
+            destViewController.pController = 1
         }
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
     }
     
 

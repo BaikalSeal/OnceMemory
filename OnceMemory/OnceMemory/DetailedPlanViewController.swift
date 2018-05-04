@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailedPlanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailedPlanViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     var days: [String] = []
@@ -17,6 +17,7 @@ class DetailedPlanViewController: UIViewController, UITableViewDelegate, UITable
     var plan: (String?, String, String?, Int16, Int16, Int16, Bool) = ("", "", "", 0, 0, 0, true)
     var dayPlans : [[Int]] = []
     var selectedIndex: Int = -1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,11 @@ class DetailedPlanViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "GREDays")
         cell.textLabel?.text = days[indexPath.row]
+        let imageName = "right_arrow.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x:0, y:0, width: 18, height:16)
+        cell.accessoryView = imageView
         return (cell)
     }
     
@@ -141,6 +147,19 @@ class DetailedPlanViewController: UIViewController, UITableViewDelegate, UITable
 //            l.sorted()
 //        }
         
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        navigationBar.barTintColor = theme.navigationBarColor
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        navigationBar.tintColor = theme.barItemColor
+        navigationBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
     }
     
     /*

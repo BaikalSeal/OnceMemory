@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 
-class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchResultsViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView:UITableView?
     
-//    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
+    @IBOutlet weak var naviBar: UINavigationBar!
+    //    var tableNames: [String] = ["Item 1", "Item 2", "Item 3"]
     
     var tableItems: Array<(String, String, Int, Bool)> = Array<(String, String, Int, Bool)>()
     
@@ -48,7 +49,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView!.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
         self.view.addSubview(self.tableView!)
         
-        tableItems.append(("chinese", "chn", 1, true))
+//        tableItems.append(("chinese", "chn", 1, true))
         
         let tempResult: Array<(String, String, Int, Bool)> = self.searchResult(self.itemTitle!, nil, nil, nil)
         
@@ -182,7 +183,22 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         if segue.identifier == "toSearchDetail" {
             let destViewController : SearchDetailedPlanViewController = segue.destination as! SearchDetailedPlanViewController
             destViewController.plan = returnedItems[selectedIndex]
+            destViewController.itemTitle = self.itemTitle
+            destViewController.pController = 0
         }
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
     }
     
 

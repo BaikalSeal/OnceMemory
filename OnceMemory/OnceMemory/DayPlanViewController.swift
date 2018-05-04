@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class DayPlanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DayPlanViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var naviBar: UINavigationBar!
     
     var lessons: [Int] = []
     var day = 0
@@ -47,6 +49,19 @@ class DayPlanViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destViewController : DetailedPlanViewController = segue.destination as! DetailedPlanViewController
         destViewController.plan = self.plan
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
     }
 
     /*

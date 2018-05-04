@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CreateAccountController: UIViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateAccountController: SuperViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
 
 
     @IBOutlet weak var idTextField: UITextField!
@@ -21,6 +21,8 @@ class CreateAccountController: UIViewController, UITextFieldDelegate,UIPickerVie
     @IBOutlet weak var secTextField: UITextField!
     
     @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var naviBar: UINavigationBar!
     
     var pickerData: [String] = [String]()
     
@@ -92,6 +94,36 @@ class CreateAccountController: UIViewController, UITextFieldDelegate,UIPickerVie
 //        }
 //    }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if idTextField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet()+Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength <= 10 && string == numberFiltered
+        }
+        else if pwdTextField == textField {
+            guard let text = textField.text else {
+                return true
+            }
+            
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet()+Constraints.getNumbers()).inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            let textLength = text.count + string.count - range.length
+            
+            return textLength <= 15 && string == numberFiltered
+        }
+        return true
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -106,6 +138,28 @@ class CreateAccountController: UIViewController, UITextFieldDelegate,UIPickerVie
     
     
     @IBAction func DoneBtn(_ sender: UIBarButtonItem) {
+        
+        if self.idTextField.text == nil || (self.idTextField.text?.count)! < 3 {
+            let alertController = UIAlertController(title: "Attention", message: "Username length cannot be shorter than 3!", preferredStyle:  .alert)
+            
+            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if self.pwdTextField.text == nil || (self.pwdTextField.text?.count)! < 8 {
+            let alertController = UIAlertController(title: "Attention", message: "Password length cannot be shorter than 8!", preferredStyle:  .alert)
+            
+            let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
         
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -196,6 +250,20 @@ class CreateAccountController: UIViewController, UITextFieldDelegate,UIPickerVie
 //            let controller = segue.destination as! HomepageViewController
 //            controller.itemTitle = sender as? String
         }
+    }
+    
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
     }
     /*
     // MARK: - Navigation

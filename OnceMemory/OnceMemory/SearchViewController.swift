@@ -8,15 +8,17 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: SuperViewController, UITextFieldDelegate {
 
     @IBOutlet weak var searchBtn: UIButton!
     
     @IBOutlet weak var searchTextField: UITextField!
     
+    @IBOutlet weak var naviBar: UINavigationBar!
+    
     var searchTitle: String?
     
-    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +46,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 return true
             }
             
-            let aSet = NSCharacterSet(charactersIn:alphabet).inverted
+            let aSet = NSCharacterSet(charactersIn:Constraints.getAlphabet() + " _").inverted
             let compSepByCharInSet = string.components(separatedBy: aSet)
             let numberFiltered = compSepByCharInSet.joined(separator: "")
             
             let textLength = text.count + string.count - range.length
             
-            return textLength < 24 && string == numberFiltered
+            return textLength < 20 && string == numberFiltered
 //            guard let text = textField.text else {
 //                return true
 //            }
@@ -70,8 +72,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func funcBtn(_ sender: UIButton) {
-        
-        if self.searchTextField.text != nil {
+        let searchWithoutSpaces = searchTextField.text?.trimmingCharacters(in: .whitespaces)
+        if searchTextField.text?.count == 0 || searchWithoutSpaces?.count == 0{
+            let alertController = UIAlertController(title: "Attention", message:
+                "Please enter the title you are searching", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        if self.searchTextField.text != nil && self.searchTextField.text?.count != 0{
             searchTitle = self.searchTextField.text!
             self.performSegue(withIdentifier: "GetSearchResult", sender: searchTitle)
         }
@@ -90,6 +98,19 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             let controller = segue.destination as! SearchResultsViewController
             controller.itemTitle = sender as? String
         }
+    }
+    
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
     }
     
 

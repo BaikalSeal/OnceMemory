@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CopyrightViewController: UIViewController {
+class CopyrightViewController: SuperViewController {
 
+    @IBOutlet weak var naviBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,18 @@ class CopyrightViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func handelNotification(notification: NSNotification) {
+        guard let theme = notification.object as? ThemeProtocol else {
+            return
+        }
+        naviBar.barTintColor = theme.navigationBarColor
+        naviBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.textColor]
+        naviBar.tintColor = theme.barItemColor
+        naviBar.isTranslucent = false
+        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+        barView.backgroundColor = theme.navigationBarColor
+        self.view.addSubview(barView)
+    }
 
     /*
     // MARK: - Navigation
