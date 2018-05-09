@@ -84,7 +84,7 @@ class AdvnacedResultViewController: SuperViewController, UITableViewDelegate, UI
         
         if cate != nil {
             dict["cate"] = cate
-            predicateArray.append(NSPredicate(format: "cate = %@", cate!))
+            predicateArray.append(NSPredicate(format: "category = %@", cate!))
         }
         
         if priority != nil {
